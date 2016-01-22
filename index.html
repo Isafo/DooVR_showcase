@@ -34,6 +34,14 @@
         <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
+<p>I applikationen DooVR modellerar användaren i 3D med hjälp av en HMD och handhållna 6DoF-enheter. Applikationen ger konstnärer möjlighet att modellera på samma sätt som de gör i verkligheten men utan verklighetens begränsningar. Detta kräver att miljön som användaren arbetar i känns naturlig och att all teknik som används är synkroniserad och fungerar tillsammans. Det krävs också ett objekt som kan förändras på oändligt många sätt och funktioner som ger användaren både frihet och precision i sitt skapande.</p>
+
+<p>Eftersom modellen ska kunna förändras och formas i realtid ställs ökade krav på datastrukturen. Modellen kan antingen representeras som en mesh eller som en faktisk volym. Där de två representationerna har olika för och nackdelar. I DooVR har både en mesh baserad och en volymbaserad representation implementerats.</p>
+
+<p>Den meshbaserade använder en datastuktur som kallas half-edge. Med hjälp av data strukturen kan "edge collapses" och "edge splits" utföras när två vertexpunkter kommer för nära respektive för långt bort från varandra. Vilket gör det möjligt att flytta på vertexpunkterna i meshen och samtidigt behålla upplösningen.</p>
+
+<p>I den volymbaserade ändras vid modellering skalärvärden i ett skalärfält. Skalärfältet används sedan för att skapa en yta med Marching cubes algoritmen. För att göra det möjligt för användaren att modellera små detaljer krävs ett kompakt skalärfält vilket innebär mer data. Arbetsytan bör även vara stor eftersom användaren arbetar ståendes och med hela kroppen. Detta gör att mängden data lätt blir väldigt stor och behövs hanteras för att kunna köras på dagens persondatorer. För att det ska vara möjligt att köra Marching cubes algoritmen i realtid (60FPS) för att återskapa de delar av ytan som förändrats har en sorteringsstruktur kallad "Octree" implementerats och optimeringar har gjorts. Octree-strukturen gör det möjligt att hitta de skalärvärden som är relevanta och utesluta de värden som inte är det. Optimeringarna har inneburit att ärva och cachea data på ett sådant sätt att samma data endast sparas på ett ställe och beräknas en gång, vilket inte är fallet i orginal-algorithmen.</p>
+
 
 <h3>Ytbaserad metod</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ur1mYmKPilU" frameborder="0" allowfullscreen></iframe>

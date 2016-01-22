@@ -37,15 +37,13 @@
         
         <p>Eftersom modellen ska kunna förändras och formas i realtid ställs ökade krav på datastrukturen. Modellen kan antingen representeras som en mesh eller som en faktisk volym. Där de två representationerna har olika för och nackdelar. I DooVR har både en mesh baserad och en volymbaserad representation implementerats.</p>
         
-        <p>Den ytbaserade använder en datastuktur som kallas half-edge. Med hjälp av data strukturen kan "edge collapses" och "edge splits" utföras när två vertexpunkter kommer för nära respektive för långt bort från varandra. Vilket gör det möjligt att flytta på vertexpunkterna i meshen och samtidigt behålla upplösningen.</p>
-        
-        <p>I den volymbaserade ändras vid modellering skalärvärden i ett skalärfält. Skalärfältet används sedan för att skapa en yta med Marching cubes algoritmen. För att göra det möjligt för användaren att modellera små detaljer krävs ett kompakt skalärfält vilket innebär mer data. Arbetsytan bör även vara stor eftersom användaren arbetar ståendes och med hela kroppen. Detta gör att mängden data lätt blir väldigt stor och behövs hanteras för att kunna köras på dagens persondatorer. För att det ska vara möjligt att köra Marching cubes algoritmen i realtid (60FPS) för att återskapa de delar av ytan som förändrats har en sorteringsstruktur kallad "Octree" implementerats och optimeringar har gjorts. Octree-strukturen gör det möjligt att hitta de skalärvärden som är relevanta och utesluta de värden som inte är det. Optimeringarna har inneburit att ärva och cachea data på ett sådant sätt att samma data endast sparas på ett ställe och beräknas en gång, vilket inte är fallet i orginal-algorithmen.</p>
-        
-        
         <h3>Ytbaserad metod</h3>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/Ur1mYmKPilU" frameborder="0" allowfullscreen></iframe>
+          <p>Den ytbaserade använder en datastuktur som kallas half-edge. Med hjälp av data strukturen kan "edge collapses" och "edge splits" utföras när två vertexpunkter kommer för nära respektive för långt bort från varandra. Vilket gör det möjligt att flytta på vertexpunkterna i meshen och samtidigt behålla upplösningen.</p>
         
         <h3>Volymbaserad metod</h3>
+          <p>I den volymbaserade ändras vid modellering skalärvärden i ett skalärfält. Skalärfältet används sedan för att skapa en yta med Marching cubes algoritmen. För att göra det möjligt för användaren att modellera små detaljer krävs ett kompakt skalärfält vilket innebär mer data. Arbetsytan bör även vara stor eftersom användaren arbetar ståendes och med hela kroppen. Detta gör att mängden data lätt blir väldigt stor och behövs hanteras för att kunna köras på dagens persondatorer. För att det ska vara möjligt att köra Marching cubes algoritmen i realtid (60FPS) för att återskapa de delar av ytan som förändrats har en sorteringsstruktur kallad "Octree" implementerats och optimeringar har gjorts. Octree-strukturen gör det möjligt att hitta de skalärvärden som är relevanta och utesluta de värden som inte är det. Optimeringarna har inneburit att ärva och cachea data på ett sådant sätt att samma data endast sparas på ett ställe och beräknas en gång, vilket inte är fallet i orginal-algorithmen.</p>
+                
         <iframe width="560" height="315" src="https://www.youtube.com/embed/2U8QG8iR7P4" frameborder="0" allowfullscreen></iframe>
         
         <h3>
@@ -70,7 +68,6 @@
       </footer>
     </div>
 
-    
 
   </body>
 </html>
